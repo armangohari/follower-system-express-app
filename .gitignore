@@ -1,0 +1,10 @@
+# node
+node_modules
+package-lock.json
+
+# prisma
+/prisma/*
+!/prisma/schema.prisma
+!/prisma/seed.ts
+
+

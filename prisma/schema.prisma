@@ -1,0 +1,26 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./follower-system-app.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        Int        @id @default(autoincrement())
+  username  String     @unique
+  followers Follower[] @relation("followers")
+  following Follower[] @relation("following")
+}
+
+model Follower {
+  id          Int      @id @default(autoincrement())
+  follower    User     @relation("following", fields: [followerId], references: [id])
+  followerId  Int
+  following   User     @relation("followers", fields: [followingId], references: [id])
+  followingId Int
+  createdAt   DateTime @default(now())
+
+  @@unique([followerId, followingId])
+}
