@@ -34,7 +34,7 @@ async function main() {
   });
 
   console.log(
-    "Database has been seeded with 5 new `user`s and 8 `follower` relationships. 🌱"
+    "Database has been seeded with 4 new `user`s and 8 `follower` relationships. 🌱"
   );
 }
 
